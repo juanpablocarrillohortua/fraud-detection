@@ -6,7 +6,7 @@
 
 ## Project description
 
-A small project designed to practice the use of algorithms, such as XGBoost, for handling unbalanced samples. The model utilizes a Credit Card transaction dataset sourced from Kaggle.
+A small project designed to show the use of algorithms, such as XGBoost, for handling unbalanced samples. The model utilizes a Credit Card transaction dataset sourced from Kaggle.
 
 ---
 ## Author
