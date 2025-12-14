@@ -4,8 +4,7 @@
 ![Made with Jupyter](https://forthebadge.com/images/badges/made-with-jupyter.svg) ![Built with Pandas](https://forthebadge.com/images/badges/built-with-pandas.svg)
 
 
-![Python version](https://img.shields.io/badge/py-3.14.2-blue.svg)
-![pandas version](https://img.shields.io/badge/pandas-2.3.3-orange.svg)
+[![forthebadge](/badges/made-with-python.svg)](https://forthebadge.com)
 
 
 ## Project description
