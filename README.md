@@ -1,72 +1,61 @@
-<div style="width:100%; background-color:#00522c; border-bottom:3px solid #34a853; padding:20px 0; text-align:center;">
-  <img src="https://pattern-lab-externado-prod.web.app/images/logo-uec.svg" alt="Banner del proyecto" width="40%">
-</div>
-
-# Análisis Exploratorio de Datos (EDA): TITANIC
-
-## Descripción del proyecto
+# Fraud Detection
 
 
-
----
-## Objetivos
-
-### Objetivo general
+[![forthebadge](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjkiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAyMjkgMzUiIGNsYXNzPSJiYWRnZS1zdmciIGRhdGEtdi0zYzg3YjdiND0iIj48ZGVmcyBkYXRhLXYtM2M4N2I3YjQ9IiI+PCEtLS0tPjwhLS0tLT48IS0tLS0+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMzEuMzI4MTI1IiBoZWlnaHQ9IjM1IiBmaWxsPSIjMzFDNEYzIiBkYXRhLXYtM2M4N2I3YjQ9IiIvPjwhLS1bLS0+PHJlY3QgeD0iMTMxLjMyODEyNSIgd2lkdGg9Ijk3LjY3MTg3NSIgaGVpZ2h0PSIzNSIgZmlsbD0iIzM4OUFENSIgZGF0YS12LTNjODdiN2I0PSIiLz48IS0tXS0tPjxnIGRhdGEtdi0zYzg3YjdiND0iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMCwgOS41KSBzY2FsZSgwLjY2NjY2NjY2NjY2NjY2NjYpIj48cGF0aCBkYXRhLXYtM2M4N2I3YjQ9IiIgZD0iTTcuMTU3IDIyLjIwMUExLjc4NCAxLjc5OSAwIDAgMSA1LjM3NCAyNGExLjc4NCAxLjc5OSAwIDAgMS0xLjc4NC0xLjc5OSAxLjc4NCAxLjc5OSAwIDAgMSAxLjc4NC0xLjc5OSAxLjc4NCAxLjc5OSAwIDAgMSAxLjc4MyAxLjc5OXpNMjAuNTgyIDEuNDI3YTEuNDE1IDEuNDI3IDAgMCAxLTEuNDE1IDEuNDI4IDEuNDE1IDEuNDI3IDAgMCAxLTEuNDE2LTEuNDI4QTEuNDE1IDEuNDI3IDAgMCAxIDE5LjE2NyAwYTEuNDE1IDEuNDI3IDAgMCAxIDEuNDE1IDEuNDI3ek00Ljk5MiAzLjMzNkExLjA0NyAxLjA1NiAwIDAgMSAzLjk0NiA0LjM5YTEuMDQ3IDEuMDU2IDAgMCAxLTEuMDQ3LTEuMDU1QTEuMDQ3IDEuMDU2IDAgMCAxIDMuOTQ2IDIuMjhhMS4wNDcgMS4wNTYgMCAwIDEgMS4wNDYgMS4wNTZ6bTcuMzM2IDEuNTE3YzMuNzY5IDAgNy4wNiAxLjM4IDguNzY4IDMuNDI0YTkuMzYzIDkuMzYzIDAgMCAwLTMuMzkzLTQuNTQ3IDkuMjM4IDkuMjM4IDAgMCAwLTUuMzc3LTEuNzI4QTkuMjM4IDkuMjM4IDAgMCAwIDYuOTUgMy43M2E5LjM2MyA5LjM2MyAwIDAgMC0zLjM5NCA0LjU0N2MxLjcxMy0yLjA0IDUuMDA0LTMuNDI0IDguNzcyLTMuNDI0em0uMDAxIDEzLjI5NWMtMy43NjggMC03LjA2LTEuMzgxLTguNzY4LTMuNDI1YTkuMzYzIDkuMzYzIDAgMCAwIDMuMzk0IDQuNTQ3QTkuMjM4IDkuMjM4IDAgMCAwIDEyLjMzIDIxYTkuMjM4IDkuMjM4IDAgMCAwIDUuMzc3LTEuNzI5IDkuMzYzIDkuMzYzIDAgMCAwIDMuMzkzLTQuNTQ3Yy0xLjcxMiAyLjA0NC01LjAwMyAzLjQyNS04Ljc3MiAzLjQyNVoiIGZpbGw9IiNmZjdiMDAiLz48L2c+PHRleHQgeD0iNzUuNjY0MDYyNSIgeT0iMTcuNSIgZHk9IjAuMzVlbSIgZm9udC1zaXplPSIxMiIgZm9udC1mYW1pbHk9IlJvYm90bywgc2Fucy1zZXJpZiIgZmlsbD0iI0ZGRkZGRiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc3R5bGU9Im5vcm1hbCIgdGV4dC1kZWNvcmF0aW9uPSJub25lIiBmaWxsLW9wYWNpdHk9IjEiIGZvbnQtdmFyaWFudD0ibm9ybWFsIiBzdHlsZT0idGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlOyIgZGF0YS12LTNjODdiN2I0PSIiPk1BREUgV0lUSDwvdGV4dD48IS0tLS0+PHRleHQgeD0iMTgwLjE2NDA2MjUiIHk9IjE3LjUiIGR5PSIwLjM1ZW0iIGZvbnQtc2l6ZT0iMTIiIGZvbnQtZmFtaWx5PSJNb250c2VycmF0LCBzYW5zLXNlcmlmIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iOTAwIiBsZXR0ZXItc3BhY2luZz0iMiIgZm9udC1zdHlsZT0ibm9ybWFsIiB0ZXh0LWRlY29yYXRpb249Im5vbmUiIGZpbGwtb3BhY2l0eT0iMSIgZm9udC12YXJpYW50PSJub3JtYWwiIHN0eWxlPSJ0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7IiBkYXRhLXYtM2M4N2I3YjQ9IiI+SlVQWVRFUjwvdGV4dD48IS0tLS0+PC9zdmc+)](https://forthebadge.com)
+[![forthebadge](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMTYuNzQ4ODAwMDAwMDAwMDIiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAyMTYuNzQ4ODAwMDAwMDAwMDIgMzUiPjwhLS17InBhbmVscyI6MiwicHJpbWFyeUljb24iOiJwYW5kYXMiLCJwcmltYXJ5SWNvbkNvbG9yIjoiIzE3MDhlNyIsInByaW1hcnlJY29uU2l6ZSI6MTYsInByaW1hcnlJY29uUG9zaXRpb24iOiJsZWZ0In0tLT48cmVjdCB3aWR0aD0iMTMwLjY3MiIgaGVpZ2h0PSIzNSIgZmlsbD0iI2QzNzcwZCIgLz48cmVjdCB4PSIxMzAuNjcyIiB3aWR0aD0iODYuMDc2OCIgaGVpZ2h0PSIzNSIgZmlsbD0iIzM4OUFENSIgLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMCwgOS41KSBzY2FsZSgwLjY2NjY2NjY2NjY2NjY2NjYpIj4KICAgICAgICA8cGF0aCBkPSJNMTYuOTIyIDBoMi42MjN2MTguMTA0aC0yLjYyM3ptLTQuMTI2IDEyLjk0aDIuNjIzdjIuNTdoLTIuNjIzem0wLTcuMDM3aDIuNjIzdjUuNDQ2aC0yLjYyM3ptMCAxMS4xOTdoMi42MjN2NS40NDZoLTIuNjIzek00LjQ1NiA1Ljg5NmgyLjYyMlYyNEg0LjQ1NXptNC4yMTMgMi41NTloMi42MjN2Mi41N0g4LjY3em0wIDQuMTUxaDIuNjIzdjUuNDQ3SDguNjd6bTAtMTEuMTg3aDIuNjIzdjUuNDQ2SDguNjdaIiBmaWxsPSIjMTcwOGU3IiAvPgogICAgPC9nPjx0ZXh0IHg9Ijc1LjMzNiIgeT0iMTcuNSIgZHk9IjAuMzVlbSIgZm9udC1zaXplPSIxMiIgZm9udC1mYW1pbHk9IlJvYm90bywgc2Fucy1zZXJpZiIgZmlsbD0iI0ZGRkZGRiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGwtb3BhY2l0eT0iMSIgc3R5bGU9InRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2UiPkJVSUxUIFdJVEg8L3RleHQ+PHRleHQgeD0iMTczLjcxMDQiIHk9IjE3LjUiIGR5PSIwLjM1ZW0iIGZvbnQtc2l6ZT0iMTIiIGZvbnQtZmFtaWx5PSJNb250c2VycmF0LCBzYW5zLXNlcmlmIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbC1vcGFjaXR5PSIxIiBzdHlsZT0idGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZSI+UEFOREFTPC90ZXh0Pjwvc3ZnPg==)](https://forthebadge.com)
 
 
+![Python version](https://img.shields.io/badge/py-3.14.2-blue.svg)
+![pandas version](https://img.shields.io/badge/pandas-2.3.3-orange.svg)
 
-### Objetivos específicos
 
+## Project description
 
+A small project designed to practice the use of algorithms, such as XGBoost, for handling unbalanced samples. The model utilizes a Credit Card transaction dataset sourced from Kaggle.
 
 ---
-## Autores
+## Author
 
 - **Juan Pablo Carrillo Hortua**  
 
 ---
 
-## Estructura del repositorio
-
-ejemplo
+## Repository structure
 
 ```text
-titanic-pandas-proyecto/
-├── README.md                 # Presentación del proyecto
-├── .gitignore                # Archivos y carpetas a ignorar 
+fraud-detection/
+├── README.md                 
+├── .gitignore                
 ├── data/
-│   ├── README.md             # Instrucciones de descarga de datasets 
-│   └── archivos descargados de Kaggle, Descarguelos usted
-├── notebooks/                # Análisis exploratorios
-├── src/                      # Scripts en Python
+│   ├── README.md             # Dataset download instructions
+│   └── Download files from Kaggle, download them yourself
+├── notebooks/                # Exploratory analyses
+├── src/                      
 ├── outputs/
-│   ├── tablas/               # Archivos CSV con resultados o resúmenes
-│   └── graficos/             # Figuras y visualizaciones
 ├── requirements.txt
 ├── LICENSE.txt
-└── docs/                     # Informe final y conclusiones
+└── docs/                    
 ```
 ---
-## Ejecución del proyecto.
+## Project execution.
 
-### Requisitos generales:
+You must download the cited database within this file, use the remote_download script, and then run the entire notebook.
 
-
-### Instrucciones basicas:
+If you only want to view the insights, navigate to the outputs directory.
 
 
 ---
 
 ## Dataset
 
-ejemplo
 
-**Nombre:** Titanic - Machine Learning from Disaster 
 
-**Autor:** Will Cukierski
+**Name:** Credit Card Fraud Detection
 
-**Fuente:** [Kaggle Dataset](https://www.kaggle.com/competitions/titanic/overview)  
+**Autor:** Andrea Dal Pozzolo, Olivier Caelen, et al. (MLG-ULB)
 
-**Licencia:**  Apache License 2.0  
+**Source:** [Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+
+**License:**  Creative Commons Attribution-Share Alike 4.0 International (CC BY-SA 4.0)
 
 ---
